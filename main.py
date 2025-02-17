@@ -10,8 +10,13 @@ deposito_contagem = 0
 def operacao_deposito():
     while True:
         try:
-            valor_deposito = float(input('Digite a quantia à ser depositado: \n'))
-            break
+            string_deposito = input('Digite a quantia à ser depositado: \n')
+            deposito_formatado = string_deposito.replace(".", "")
+            if deposito_formatado.isnumeric() == True:
+                valor_deposito = float(string_deposito)
+                break
+            else:
+                raise ValueError
         except ValueError:
             print('Opção inválida')
     print(f'Foi depositado R$ {valor_deposito} para sua conta')
@@ -29,8 +34,13 @@ def operacao_saque(saldo):
     
     while True:
         try:
-            valor_saque = float(input('Digite a quantia à ser retirado: \n'))
-            break
+            string_saque = input('Digite a quantia à ser retirado: \n')
+            saque_formatado = string_saque.replace(".", "")
+            if saque_formatado.isnumeric() == True:
+                valor_saque = float(string_saque)
+                break
+            else:
+                raise ValueError
         except ValueError:
             print('Opção inválida')
         
